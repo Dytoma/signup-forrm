@@ -1,0 +1,297 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: var(--ff-text);
+
+    background-image: url(images/bg-intro-desktop.png);
+    background-position: center;
+    background-size: cover;
+    background-color: var(--color-primary-red);
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+:root {
+    /* Colors */
+    --color-primary-red: hsl(0, 100%, 74%);
+    --color-primary-green: hsl(154, 59%, 51%);
+
+    --color-accent-blue: hsl(248, 32%, 49%);
+    --color-neutral-drk-blue: hsl(249, 10%, 26%);
+    --color-neutral-grayish-blue: hsl(246, 25%, 77%);
+
+    /* Font family */
+    --ff-text: 'Poppins', sans-serif;
+
+    /* Font weights */
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semi-bold: 600;
+    --fw-bold: 700;
+
+    /* Font sizes */
+    --fs-body: 16px;
+
+}
+
+.signup-container {
+    padding: 7.5625rem 10.1875rem 7.0625rem 7.56rem;
+    display: grid;
+    grid-template-columns: 1fr 34rem;
+    gap: 69px;
+
+}
+
+.signup__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 2.75rem 2rem;
+}
+
+.signup__desc--primary {
+    font-family: var(--ff-text);
+    font-style: normal;
+    font-weight: var(--fw-bold);
+    font-size: 53px;
+    line-height: 99.6%;
+    letter-spacing: -0.04em;
+    color: #FFFFFF;
+
+    margin-bottom: 1.125rem;
+}
+
+.signup__desc--secondary {
+    font-family: var(--ff-text);
+    font-weight: var(--fw-regular);
+    font-size: 16px;
+    line-height: 162.1%;
+
+    color: #FFFFFF;
+}
+
+.signup__form {
+    border-radius: 13px;
+    background-color: #FFFFFF;
+    padding: 2.5625rem;
+    box-shadow: 0 5px hsl(360, 7%, 44%, 65%);
+    position: relative;
+}
+
+.signup__form-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 3.75rem;
+    background-color: var(--color-accent-blue);
+    border-radius: 10px;
+    margin-bottom: 23px;
+    box-shadow: 0 5px hsl(360, 7%, 44%, 65%);
+
+    color: #FFFFFF;
+    font-weight: var(--fw-semi-bold);
+    font-size: 0.9375rem;
+    line-height: 156.1%;
+    letter-spacing: 0.015em;
+}
+
+.signup__form-button--price {
+    font-weight: var(--fw-regular);
+    margin-left: 3px;
+}
+
+input {
+    display: block;
+    width: 100%;
+    height: 3.4375rem;
+    border-radius: 4px;
+    border-color: var(--color-neutral-grayish-blue);
+    color: var(--color-neutral-drk-blue);
+
+    font-weight: var(--fw-medium);
+    font-size: 0.9375rem;
+    line-height: 156.1%;
+    letter-spacing: -0.02em;
+
+    padding: 1.125rem 2rem 0.875rem;
+}
+
+/* error messages */
+
+.error {
+    display: block;
+    text-align: right;
+    color: var(--color-primary-red);
+    font-size: 12px;
+}
+.error-message {
+    border-color: var(--color-primary-red);
+    outline: 0;
+}
+svg {
+    visibility: hidden;
+    position: absolute;
+    right: 4.125rem;
+}
+
+.error-message + svg {
+    visibility: visible;
+}
+
+#fname.error-message + svg {
+    top: 3.5625rem;
+}
+#lname.error-message + svg {
+    top: 8.3125rem;
+}
+#email.error-message + svg {
+    top: 13.0625rem;
+}
+#password.error-message + svg {
+    top: 17.8125rem;
+}
+
+input:not(:first-child) {
+    margin-top: 20px;
+}
+
+input:hover,
+input:focus {
+    border-color: var(--color-neutral-drk-blue);
+}
+
+.button {
+    width: 100%;
+    height: 3.4375rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block: 1.125rem;
+
+    color: #FFFFFF;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-weight: var(--fw-medium);
+    font-size: 0.9375rem;
+    line-height: 156.1%;
+    letter-spacing: 0.065em;
+
+    background-color: var(--color-primary-green);
+    border: none;
+    box-shadow: 0 5px rgba(25, 77, 55, 0.5);
+}
+
+.signup__conditions {
+    font-family: var(--ff-text);
+    font-weight: var(--fw-medium);
+    font-size: 0.6875rem;
+    line-height: 156.1%;
+    text-align: center;
+
+    color: var(--color-neutral-grayish-blue);
+}
+
+.conditions--highlighted {
+    color: var(--color-primary-red);
+}
+
+@media screen and (max-width: 500px) {
+    .signup-container {
+        padding-inline: 1.5rem;
+        padding-bottom: 4rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .signup__text {
+        padding-inline: 0;
+        text-align: center;
+    }
+    .signup__desc--primary {
+        font-size: 30px;
+    }
+    .signup__desc--secondary {
+        font-size: 16px;
+    }
+    .signup__form {
+        padding: 1.5rem;
+    }
+    .signup__form-button {
+        height: auto;
+        padding: 1rem 4rem;
+        text-align: center;
+    }
+}
+
+
+
